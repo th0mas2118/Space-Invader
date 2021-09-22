@@ -1,5 +1,5 @@
 #include <stdbool.h>
-#include "fonctions_SDL.h"
+#include <SDL2/SDL.h>
 
 int main(){
     SDL_Window* fenetre;//Déclaration de la fenêtre
