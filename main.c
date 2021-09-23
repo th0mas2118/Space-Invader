@@ -1,5 +1,5 @@
 #include <stdbool.h>
-#include <SDL2/SDL.h>
+#include "fonctions_SDL.h"
 
 int main(){
     SDL_Window* fenetre;//Déclaration de la fenêtre
@@ -16,7 +16,20 @@ int main(){
         SDL_Quit();
         return EXIT_FAILURE;
     }
+    //Mise en place renderer
+    SDL_Renderer* ecran;
+    ecran= SDL_CreateRenderer(fenetre,-1,SDL_RENDERER_ACCELERATED);
+    //Charge image
+    SDL_Texture* fond = charger_image("fond.bmp",ecran);
+    int i = 0;
     while(!terminer){
+        SDL_RenderClear(ecran);
+        SDL_RenderCopy(ecran,fond,NULL,NULL);
+        SDL_RenderPresent(ecran);
+        if(i==0){
+            printf("Affichage\n");
+            i++;
+        }
         SDL_PollEvent(&evenements);
         switch(evenements.type){
             case SDL_QUIT:
