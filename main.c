@@ -2,6 +2,8 @@
 #include "fonctions_SDL.h"
 
 int main(){
+    //Pour image transparente
+    //Uint8 r = 0, g = 255, b = 255;
     SDL_Window* fenetre;//Déclaration de la fenêtre
     SDL_Event evenements;//Evenements lié a la fenêtre
     bool terminer =false;
@@ -21,15 +23,12 @@ int main(){
     ecran= SDL_CreateRenderer(fenetre,-1,SDL_RENDERER_ACCELERATED);
     //Charge image
     SDL_Texture* fond = charger_image("fond.bmp",ecran);
-    int i = 0;
+
+    //Boucle principale
     while(!terminer){
         SDL_RenderClear(ecran);
         SDL_RenderCopy(ecran,fond,NULL,NULL);
         SDL_RenderPresent(ecran);
-        if(i==0){
-            printf("Affichage\n");
-            i++;
-        }
         SDL_PollEvent(&evenements);
         switch(evenements.type){
             case SDL_QUIT:
