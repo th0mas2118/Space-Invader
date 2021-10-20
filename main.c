@@ -1,12 +1,25 @@
 #include <stdbool.h>
 #include "fonctions_SDL.h"
+#include "vaisseau.h"
+#define VITESSEV 5
+
 
 int main(){
     //Pour image transparente
-    //Uint8 r = 0, g = 255, b = 255;
+    Uint8 r = 0, g = 0, b = 0;
     SDL_Window* fenetre;//Déclaration de la fenêtre
     SDL_Event evenements;//Evenements lié a la fenêtre
     bool terminer =false;
+    
+    vaisseau_t *player=malloc(sizeof(vaisseau_t));
+    //Depart(joueur, largeur écran, vitesse)
+    Depart(player, 600,600, VITESSEV);
+    /*Structure ennemi
+    typedef struct ennemi_s emmeni_t;
+    struct ennemi_s{
+        bool vie;
+    };*/
+
     if(SDL_Init(SDL_INIT_VIDEO)<0){//Initiaisaiton de la SDL
         printf("Erreur d'init SDL %s",SDL_GetError());
         SDL_Quit();
@@ -24,10 +37,17 @@ int main(){
     //Charge image
     SDL_Texture* fond = charger_image("fond.bmp",ecran);
 
+    //Charger vaisseau
+    SDL_Texture* vaisseau = charger_image_transparente("vaisseau.bmp",ecran,r,g,b);
+
+    //player->posx=SrcV.x;
+
+
     //Boucle principale
     while(!terminer){
         SDL_RenderClear(ecran);
         SDL_RenderCopy(ecran,fond,NULL,NULL);
+        SDL_RenderCopy(ecran,vaisseau,NULL,&player->DestR);
         SDL_RenderPresent(ecran);
         SDL_PollEvent(&evenements);
         switch(evenements.type){
@@ -38,6 +58,9 @@ int main(){
                     case SDLK_ESCAPE:
                     case SDLK_q:
                         terminer = true;break;
+                    case SDLK_LEFT:deplacerGauche(player);SDL_Delay(10); break;
+                    case SDLK_RIGHT:deplacerDroite(player);SDL_Delay(10);
+                    break;
                 }
         }
     }
