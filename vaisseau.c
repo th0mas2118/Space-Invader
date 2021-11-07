@@ -1,7 +1,7 @@
 #include "vaisseau.h"
 
 void Depart(vaisseau_t* v, int W, int H, int V){
-    v->DestR.x=W/2;//Positionne le vaisseau au milieu
+    v->DestR.x=W/2-50;//Positionne le vaisseau au milieu
     v->DestR.y=H-150;
     v->DestR.w=120;
     v->DestR.h=120;
