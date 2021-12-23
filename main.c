@@ -5,6 +5,7 @@
 #include "ressources.h"
 #include "renderer.h"
 #include "event.h"
+#include "fonction_score.h"
 #endif
 
 int main(int argc, char *args[]){
@@ -16,6 +17,13 @@ int main(int argc, char *args[]){
     SDL_Window *Window;
     
     init(&Window, &renderer, &ressources, &world);
+    //Ouverture fichier score
+    FILE * pFile;
+    pFile=fopen("score.txt","r");
+    if(pFile==NULL){
+        resetScore(pFile);
+    }
+
 
     while(!is_game_over(&world)){
         handle_event(&event,&world);
@@ -23,6 +31,11 @@ int main(int argc, char *args[]){
         refresh_graphics(renderer, &world, &ressources);
         pause(10);
     }
+
+    //La partie est fini
+
+    ecrireScore(world->score,pFile);
+
 
     clean(Window, renderer, &ressources, &world);
 
