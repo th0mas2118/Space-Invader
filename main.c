@@ -34,7 +34,7 @@ int main(int argc, char *args[]){
 
     //La partie est fini
 
-    ecrireScore(world->score,pFile);
+    ecrireScore(world.score,pFile);
 
 
     clean(Window, renderer, &ressources, &world);

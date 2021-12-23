@@ -5,7 +5,7 @@
 
 void ecrireScore(int score, FILE* fichier);
 
-void lireHighScore(FILE* fichier);
+int lireHighScore(FILE* fichier);
 
 void resetScore(FILE*fichier);
 

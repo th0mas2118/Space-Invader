@@ -12,7 +12,7 @@ void ecrireScore(int score, FILE* fichier){
 int lireHighScore(FILE* fichier){
     int max=0;
     char chaine [TAILLE_MAX];//Création chaine vide pour récupérer les scores
-    fichier=fopen("score.txt",r)
+    fichier=fopen("score.txt","r");
     if(fichier!=NULL){
         while(fgets(chaine,TAILLE_MAX,fichier)){
             if(max<atoi(chaine)){
@@ -27,7 +27,7 @@ void resetScore(FILE* fichier){
     fichier=fopen("score.txt","w");
     if(fichier!=NULL){
         for(int i=0;i<5;i++){
-            ecrireScore(0,ficher);
+            ecrireScore(0,fichier);
         }
     }
 }
@@ -46,10 +46,10 @@ int nbLigne(FILE* fichier){
 
 void tabScore(FILE* fichier, int* tab){
     char chaine[TAILLE_MAX];
-    fichier=open("score.txt","r");
+    fichier=fopen("score.txt","r");
     if(fichier!=NULL){
         int i=0;
-        while(fgets(chaine;TAILLE_MAX,fichier)&&i<=nbLigne(fichier)){
+        while(fgets(chaine,TAILLE_MAX,fichier)&&i<=nbLigne(fichier)){
             tab[i]=atoi(chaine);
             i++;
         }
