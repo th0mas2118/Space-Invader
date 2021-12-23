@@ -19,7 +19,7 @@ int main(int argc, char *args[]){
     
     init(&Window, &renderer, &ressources, &world);
     //Demarrage musique
-    playMusic("Ressources/musique/bushido.wav",world->audio);
+    playMusic("Ressources/musique/bushido.wav",world.audio);
     //Ouverture fichier score
     FILE * pFile;
     pFile=fopen("score.txt","r");
