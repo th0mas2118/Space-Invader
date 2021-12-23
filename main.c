@@ -19,7 +19,8 @@ int main(int argc, char *args[]){
     
     init(&Window, &renderer, &ressources, &world);
     //Demarrage musique
-    playMusic("Ressources/musique/bushido.wav",world.audio);
+    initMusic(&world);
+    Mix_PlayMusic(world.music,-1):
     //Ouverture fichier score
     FILE * pFile;
     pFile=fopen("score.txt","r");
@@ -39,7 +40,8 @@ int main(int argc, char *args[]){
 
     ecrireScore(world.score,pFile);
 
-    endAudio();
+    Mix_FeeMusic(World->music);
+    Mix_CloseAudio();
     clean(Window, renderer, &ressources, &world);
 
     return EXIT_SUCCESS;

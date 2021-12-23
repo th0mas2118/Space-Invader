@@ -13,7 +13,8 @@ typedef struct world_s
 	int etat_partie;
 	int compteur;
 	int timer;
-	int audio;             //Volume de la musique
+	Mix_Music* music;
+	Uint8 volume;
 } world_t;
 
 void init_data(world_t *world);
