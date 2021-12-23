@@ -1,6 +1,6 @@
 #include "event.h"
 
-void handle_event(SDL_Event *event, world_t *world){
+void handle_event(SDL_Event *event, world_t *world, FILE* fichier){
     Uint8 *keystates;
     while(SDL_PollEvent(event)){
         if(event->type==SDL_QUIT){
@@ -12,7 +12,9 @@ void handle_event(SDL_Event *event, world_t *world){
                 //printf("right\n");
                 world->vaisseau->x= world->vaisseau->x +MOVING_STEP;
             }
-
+            if(event->key.keysym.sym==SDLK_r){
+                resetScore(fichier);
+            }
             if(event->key.keysym.sym==SDLK_LEFT && world->vaisseau->x-SHIP_SIZE/2 >0){
                 //printf("left\n");
                 world->vaisseau->x=world->vaisseau->x-MOVING_STEP;
