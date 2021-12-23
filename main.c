@@ -26,7 +26,7 @@ int main(int argc, char *args[]){
 
 
     while(!is_game_over(&world)){
-        handle_event(&event,&world,&pFile);
+        handle_event(&event,&world,pFile);
         update_data(&world);
         refresh_graphics(renderer, &world, &ressources);
         pause(10);
