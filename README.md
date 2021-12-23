@@ -9,6 +9,5 @@ r : Mettre la musique sur play
 ESCAPE / q : Quitter
 
 //TODO
-
-- Faire le tir du vaisseau
-- Affaiblissement ou élimination des ennemis
+ - Changer Image
+ - Rajouter Musique
