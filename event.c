@@ -15,6 +15,12 @@ void handle_event(SDL_Event *event, world_t *world, FILE *fichier){
             if(event->key.keysym.sym==SDLK_r){
                 resetScore(fichier);
             }
+            if(event->key.keysym.sym==SDLK_UP){
+                world->audio++;
+            }
+            if(event->key.keysym.sym==SDLK_DOWN){
+                world->audio--;
+            }
             if(event->key.keysym.sym==SDLK_LEFT && world->vaisseau->x-SHIP_SIZE/2 >0){
                 //printf("left\n");
                 world->vaisseau->x=world->vaisseau->x-MOVING_STEP;
