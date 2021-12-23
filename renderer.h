@@ -4,6 +4,7 @@
 #include "biblio.h"
 #include "world.h"
 #include "ressources.h"
+#include "fonction_score.h"
 
 void init(SDL_Window **window, SDL_Renderer **renderer, ressources_t *ressources, world_t *world);
 
