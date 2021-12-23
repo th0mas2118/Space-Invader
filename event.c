@@ -1,6 +1,6 @@
 #include "event.h"
 
-void handle_event(SDL_Event *event, world_t *world, FILE* fichier){
+void handle_event(SDL_Event *event, world_t *world, FILE *fichier){
     Uint8 *keystates;
     while(SDL_PollEvent(event)){
         if(event->type==SDL_QUIT){
