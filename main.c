@@ -6,7 +6,6 @@
 #include "renderer.h"
 #include "event.h"
 #include "fonction_score.h"
-#include "audio.h"
 #endif
 
 int main(int argc, char *args[]){
@@ -18,9 +17,6 @@ int main(int argc, char *args[]){
     SDL_Window *Window;
     
     init(&Window, &renderer, &ressources, &world);
-    //Demarrage musique
-    initMusic(&world);
-    Mix_PlayMusic(world.music,-1):
     //Ouverture fichier score
     FILE * pFile;
     pFile=fopen("score.txt","r");
@@ -40,8 +36,6 @@ int main(int argc, char *args[]){
 
     ecrireScore(world.score,pFile);
 
-    Mix_FeeMusic(World->music);
-    Mix_CloseAudio();
     clean(Window, renderer, &ressources, &world);
 
     return EXIT_SUCCESS;

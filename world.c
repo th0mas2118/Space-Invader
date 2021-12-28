@@ -7,7 +7,6 @@ void init_data(world_t *world){
     world->etat_partie=EN_COURS;
     world->compteur=0;
     world->timer=0;
-    world->audio=0;
     for(int i =0;i<NB_ENEMIES;i++){
         world->enemies[i]=malloc(sizeof(sprite_t));
     }

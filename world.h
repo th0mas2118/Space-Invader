@@ -2,6 +2,7 @@
 #define WORLD_H
 #include "biblio.h"
 #include "sprite.h"
+#include <SDL2/SDL_mixer.h>
 
 typedef struct world_s
 {
@@ -13,8 +14,6 @@ typedef struct world_s
 	int etat_partie;
 	int compteur;
 	int timer;
-	Mix_Music* music;
-	Uint8 volume;
 } world_t;
 
 void init_data(world_t *world);
