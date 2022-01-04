@@ -24,7 +24,7 @@ void init_music(world_t *world){
         SDL_Log("Erreur initialisation SDL_mixer : %s", Mix_GetError());
         SDL_Quit();
     }
-    world->music = Mix_LoadMUS("music/bushido.mp3");
+    world->music = Mix_LoadMUS("ressources/musique/bushido.mp3");
     if (world->music == NULL)
     {
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Erreur chargement de la musique : %s", Mix_GetError());
@@ -169,6 +169,7 @@ void compute_game(world_t *world){
 }
 
 void update_data(world_t *world){
+    Mix_VolumeMusic(world->volume);
     compute_game(world);
     if (world->etat_partie != EN_COURS){
         ++world->timer;
