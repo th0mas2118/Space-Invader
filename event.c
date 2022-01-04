@@ -17,9 +17,15 @@ void handle_event(SDL_Event *event, world_t *world, FILE *fichier){
             }
             if(event->key.keysym.sym==SDLK_UP){
                 //Son++
+                if (world->volume<MIX_MAX_VOLUME){
+                    world->volume += 1;
+                }   
             }
             if(event->key.keysym.sym==SDLK_DOWN){
                 //Son--
+                if (world->volume>0) {
+                    world->volume -= 1;
+                }
             }
             if(event->key.keysym.sym==SDLK_LEFT && world->vaisseau->x-SHIP_SIZE/2 >0){
                 //printf("left\n");
@@ -31,7 +37,6 @@ void handle_event(SDL_Event *event, world_t *world, FILE *fichier){
             if (event->key.keysym.sym == SDLK_SPACE && world->vaisseau->is_visible == 1)
 			{
 				//printf("La touche espace est appuyée ! \n");
-                world->score-=5;    
 				for (int i = 0; i < NB_MISSILES - 1; i++)
 				{
 					if (world->missile[0]->is_visible == 0)

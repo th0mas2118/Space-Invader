@@ -14,6 +14,8 @@ typedef struct world_s
 	int etat_partie;
 	int compteur;
 	int timer;
+	Mix_Music* music;
+	Uint8 volume;
 } world_t;
 
 void init_data(world_t *world);
@@ -43,5 +45,7 @@ void update_missile(world_t *world);
 void compute_game(world_t *world);
 
 void update_data(world_t *world);
+
+void init_music(world_t *world);
 
 #endif

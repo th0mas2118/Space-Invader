@@ -1,22 +1,17 @@
-CFLAGS = -O3 `sdl2-config --cflags`
-LDFLAGS = `sdl2-config --libs` -lSDL2_ttf -lm
-
-INC = sdl2-light.h
+CC = gcc
+CFLAGS = -W -Wall -ansi -std=c99 -g
+LIBS = -lSDL2_ttf -lSDL2_image -lSDL2_mixer
+LDFLAGS = `sdl2-config --cflags --libs` -lSDL2_ttf
+INCLUDES = -I./SDL2_ttf -I./SDL2_image -I./SDL2_mixer
+EXEC = spacebattle
 SRC = main.c sdl2-light.c sdl2-ttf-light.c event.c sprite.c ressources.c world.c renderer.c fonction_score.c
-OBJ = $(SRC:%.c=%.o)
-
-PROG = spacebattle
-
-%.o: %.c $(INC)
-	gcc $(CFLAGS) -c -g $<
-
+OBJ = $(SRC:.c=.o)
+all: $(EXEC)
 spacebattle: $(OBJ)
-	gcc $(CFLAGS) $(OBJ) $(LDFLAGS) -o $@
-
-doc: $(PROG)
-	doxygen ./$(PROG)
-	make -C latex
-
+	$(CC) $(CFLAGS) $(INCLUDES) -o $@ $^ $(LIBS) $(LDFLAGS)
+%.o: %.c
+	$(CC) $(CFLAGS) -o $@ -c $<
 clean:
-	rm -f *~ *.o $(PROG)
-	rm -rf latex html
+	rm -rf *.o *~
+mrproper: clean
+	rm -rf $(EXEC) 

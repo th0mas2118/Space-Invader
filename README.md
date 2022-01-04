@@ -1,12 +1,9 @@
-Bienvenu dans Space Invader, le but de ce jeu est de détruire tout les vaisseaux enemis.
-Si vous êtes touché par un enemi la partie se termine et vous avez perdu.
-Les constantes du nombre d'enemi ou de leur vitesse et modifiable dans le fichier "biblio.h"
+Space Invader
 
 ← : Déplacement à gauche
 → : Déplacement à droite
-ESPACE : tiré un missile
-ESCAPE : Quitter
-
-//TODO
- - Rajouter Musique
- - Ajouter niveaux difficulté
+↑ : Augmenter le volume
+↓ : Baisser le volume
+p : Mettre la musique en pause
+r : Mettre la musique sur play
+ESCAPE / q : Quitter

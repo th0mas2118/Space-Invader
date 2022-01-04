@@ -18,6 +18,24 @@ void init_data(world_t *world){
     init_enemies(world->enemies);
 }
 
+void init_music(world_t *world){
+    if (Mix_OpenAudio(96000, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) < 0)
+    {
+        SDL_Log("Erreur initialisation SDL_mixer : %s", Mix_GetError());
+        SDL_Quit();
+    }
+    world->music = Mix_LoadMUS("music/bushido.mp3");
+    if (world->music == NULL)
+    {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Erreur chargement de la musique : %s", Mix_GetError());
+        Mix_CloseAudio();
+        SDL_Quit();
+    }
+    world->volume = 50;
+    Mix_VolumeMusic(world->volume);
+    Mix_PlayMusic(world->music, -1);
+}
+
 int is_game_over(world_t *world)
 {
 	return world->gameover;

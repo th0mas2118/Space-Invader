@@ -4,6 +4,7 @@
 void ecrireScore(int score, FILE* fichier){
     fichier=fopen("score.txt","a");
     if(fichier!=NULL){
+	    printf("Le score est de %d \n", score);
         fprintf(fichier,"%d\n",score);
         fclose(fichier);
     }
