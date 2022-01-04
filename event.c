@@ -31,6 +31,7 @@ void handle_event(SDL_Event *event, world_t *world, FILE *fichier){
             if (event->key.keysym.sym == SDLK_SPACE && world->vaisseau->is_visible == 1)
 			{
 				//printf("La touche espace est appuyée ! \n");
+                world->score-=5;    
 				for (int i = 0; i < NB_MISSILES - 1; i++)
 				{
 					if (world->missile[0]->is_visible == 0)

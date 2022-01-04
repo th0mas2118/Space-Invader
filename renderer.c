@@ -35,10 +35,10 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world, ressources_t *ress
     apply_text(renderer,0,40,150,30,high,ressources->font);
     //Message état fin de jeu
     if(world->etat_partie==PERDU){
-        apply_text(renderer,10,0,200,100, "You lose!",ressources->font);
+        apply_text(renderer,200,210,200,100, "You lose!",ressources->font);
     }
     if(world->etat_partie==PARFAIT || world->etat_partie==GAGNE){
-        apply_text(renderer,10,0,200,100,"You win !",ressources->font);
+        apply_text(renderer,200,210,200,100,"You win !",ressources->font);
     }
     update_screen(renderer);
 }

@@ -9,7 +9,7 @@ void clean_ressources(ressources_t *ressources){
 }
 
 void init_ressources(SDL_Renderer *renderer, ressources_t *ressources){
-    ressources->background=load_image("ressources/space-background.bmp",renderer);
+    ressources->background=load_image("ressources/fond.bmp",renderer);
     ressources->vaisseau=load_image("ressources/spaceship.bmp",renderer);
     ressources->ennemi=load_image("ressources/enemy.bmp",renderer);
     ressources->missile=load_image("ressources/missile.bmp",renderer);
