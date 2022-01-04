@@ -32,6 +32,7 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world, ressources_t *ress
     //HIGHSCORE
     char *high=malloc(sizeof(char)*30);
     FILE* pFile;
+    pFile=fopen("score.txt","r");
     sprintf(high,"HighScore : %d",lireHighScore(pFile));
     apply_text(renderer,0,40,150,30,high,ressources->font);
     //Message état fin de jeu
